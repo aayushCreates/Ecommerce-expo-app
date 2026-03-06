@@ -1,17 +1,17 @@
 import mongoose, { Document } from "mongoose";
 
-export interface OrderDocument extends Document {
-    name: String;
-    description: String;
-    price: Number;
-    stock: Number;
-    category: String;
-    images: String[];
-    averageRating: Number,
-    totalReviews: Number
+export interface ProductDocument extends Document {
+  name: string;
+  description: string;
+  price: number;
+  stock: number;
+  category: string;
+  images: string[];
+  averageRating: number;
+  totalReviews: number;
 }
 
-const productSchema = new mongoose.Schema(
+const productSchema = new mongoose.Schema<ProductDocument>(
   {
     name: {
       type: String,
@@ -56,4 +56,7 @@ const productSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export const Product = mongoose.model("Product", productSchema);
+export const Product = mongoose.model<ProductDocument>(
+  "Product",
+  productSchema
+);

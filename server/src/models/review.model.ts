@@ -1,10 +1,10 @@
 import mongoose, { Document } from "mongoose";
 
 export interface ReviewDocument extends Document {
-  productId: String;
-  userId: String;
-  orderId: String;
-  rating: String;
+  productId: mongoose.Types.ObjectId;
+  userId: mongoose.Types.ObjectId;
+  orderId: mongoose.Types.ObjectId;
+  rating: number;
 }
 
 const reviewSchema = new mongoose.Schema<ReviewDocument>(
@@ -34,4 +34,4 @@ const reviewSchema = new mongoose.Schema<ReviewDocument>(
   { timestamps: true }
 );
 
-export const Review = mongoose.model("Review", reviewSchema);
+export const Review = mongoose.model<ReviewDocument>("Review", reviewSchema);

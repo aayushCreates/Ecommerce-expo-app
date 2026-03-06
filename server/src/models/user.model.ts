@@ -1,7 +1,7 @@
-import mongoose, { Types } from "mongoose";
-import { Document } from "mongoose";
+import mongoose, { Types, Document } from "mongoose";
 
-export interface AddressDocuement extends Document {
+export interface AddressDocument extends Document {
+  _id: Types.ObjectId;
   label: string;
   fullName: string;
   streetAddress: string;
@@ -12,17 +12,17 @@ export interface AddressDocuement extends Document {
   isDefault: boolean;
 }
 
-export interface UserDocuement extends Document {
+export interface UserDocument extends Document {
   email: string;
   name: string;
   imageUrl?: string;
   clerkId: string;
   stripeCustomerId?: string;
-  addresses: Types.DocumentArray<AddressDocuement>;
+  addresses: Types.DocumentArray<AddressDocument>;
   wishlist: Types.ObjectId[];
 }
 
-const addressSchema = new mongoose.Schema<AddressDocuement>({
+const addressSchema = new mongoose.Schema<AddressDocument>({
   label: {
     type: String,
     required: true,
@@ -57,12 +57,14 @@ const addressSchema = new mongoose.Schema<AddressDocuement>({
   },
 });
 
-const userSchema = new mongoose.Schema<UserDocuement>(
+const userSchema = new mongoose.Schema<UserDocument>(
   {
     email: {
       type: String,
       required: true,
       unique: true,
+      lowercase: true,
+      trim: true,
     },
     name: {
       type: String,
@@ -81,7 +83,9 @@ const userSchema = new mongoose.Schema<UserDocuement>(
       type: String,
       default: "",
     },
+
     addresses: [addressSchema],
+
     wishlist: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -92,4 +96,4 @@ const userSchema = new mongoose.Schema<UserDocuement>(
   { timestamps: true }
 );
 
-export const User = mongoose.model("User", userSchema);
+export const User = mongoose.model<UserDocument>("User", userSchema);
