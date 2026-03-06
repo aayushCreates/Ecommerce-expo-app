@@ -1,6 +1,6 @@
 import mongoose, { Document } from "mongoose";
 
-interface ReviewDocument extends Document {
+export interface ReviewDocument extends Document {
   productId: String;
   userId: String;
   orderId: String;
