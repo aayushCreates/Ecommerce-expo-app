@@ -1,4 +1,5 @@
 import mongoose, { Types } from "mongoose";
+import { Document } from "mongoose";
 
 export interface AddressDocuement extends Document {
   label: string;
