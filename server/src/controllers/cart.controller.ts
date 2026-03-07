@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CartServices } from "../services/cart.service.js";
+import { CartServices } from "../services/cart.service";
 
 export async function getCart(req: Request, res: Response) {
   try {

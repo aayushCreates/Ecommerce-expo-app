@@ -10,7 +10,7 @@ import productRoutes from "./routes/product.routes";
 import cartRoutes from "./routes/cart.routes";
 
 const app = express();
-dotenv.config();
+dotenv.config(); 
 
 app.use(cors());
 app.use(express.json());

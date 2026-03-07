@@ -1,4 +1,4 @@
-import { Product } from "../models/product.model.js";
+import { Product } from "../models/product.model";
 
 export class ProductServices {
   static async getProductById(productId: string) {

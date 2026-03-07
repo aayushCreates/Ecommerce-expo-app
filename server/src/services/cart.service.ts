@@ -1,6 +1,6 @@
 import { Types } from "mongoose";
-import { Cart } from "../models/cart.model.js";
-import { Product } from "../models/product.model.js";
+import { Cart } from "../models/cart.model";
+import { Product } from "../models/product.model";
 import { UserDocument } from "../models/user.model.js";
 
 export class CartServices {
