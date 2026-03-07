@@ -8,6 +8,8 @@ import reviewRoutes from "./routes/review.routes";
 import orderRoutes from "./routes/order.routes";
 import productRoutes from "./routes/product.routes";
 import cartRoutes from "./routes/cart.routes";
+import paymentRouter from "./routes/payment.routes";
+import paymentRoutes from "./routes/payment.routes";
 
 const app = express();
 dotenv.config(); 
@@ -22,6 +24,7 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/cart', cartRoutes);
+app.use('/api/payment', paymentRoutes);
 
 app.get("/api/health", (req, res) => {
     res.status(200).json({ message: "Success" });
