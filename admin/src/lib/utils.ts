@@ -17,9 +17,9 @@ export const capitalizeText = (text: string) => {
   };
   
   export const getStockStatusBadge = (stock: number) => {
-    if (stock === 0) return { text: "Out of Stock", class: "badge-error" };
-    if (stock < 20) return { text: "Low Stock", class: "badge-warning" };
-    return { text: "In Stock", class: "badge-success" };
+    if (stock === 0) return { text: "Out of Stock", class: "badge-error bg-error/5 border-error/40" };
+    if (stock < 20) return { text: "Low Stock", class: "badge-warning bg-warning/5 border-warning/40" };
+    return { text: "In Stock", class: "badge-success bg-success/5 border-success/40" };
   };
   
   export const formatDate = (dateString: string) => {
