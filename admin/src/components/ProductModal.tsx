@@ -130,27 +130,27 @@ export default function ProductModal({ open, onClose, data }: Props) {
               value={formData.name}
               onChange={handleChange}
               placeholder="Enter product name"
-              className="input input-bordered w-full"
+              className="input input-bordered w-full rounded-md"
             />
           </div>
 
           {/* Category */}
           <div>
-            <label className="label text-sm">Category</label>
+            <label className="label text-sm ">Category</label>
             <select 
               name="category"
               disabled={isLoading}
               value={formData.category}
               onChange={handleChange}
-              className="select select-bordered w-full"
+              className="select select-bordered w-full rounded-md"
             >
-              <option value="" disabled>
+              <option className="rounded-md" value="" disabled>
                 Select category
               </option>
-              <option value="Electronics">Electronics</option>
-              <option value="Books">Books</option>
-              <option value="Fashion">Fashion</option>
-              <option value="Sports">Sports</option>
+              <option className="rounded-md" value="Electronics">Electronics</option>
+              <option className="rounded-md" value="Books">Books</option>
+              <option className="rounded-md" value="Fashion">Fashion</option>
+              <option className="rounded-md" value="Sports">Sports</option>
             </select>
           </div>
 
@@ -164,7 +164,7 @@ export default function ProductModal({ open, onClose, data }: Props) {
               value={formData.price}
               onChange={handleChange}
               placeholder="0.00"
-              className="input input-bordered w-full"
+              className="input input-bordered w-full rounded-md"
             />
           </div>
 
@@ -178,7 +178,7 @@ export default function ProductModal({ open, onClose, data }: Props) {
               value={formData.stock}
               onChange={handleChange}
               placeholder="0"
-              className="input input-bordered w-full"
+              className="input input-bordered w-full rounded-md"
             />
           </div>
 
@@ -194,7 +194,7 @@ export default function ProductModal({ open, onClose, data }: Props) {
             value={formData.description}
             onChange={handleChange}
             placeholder="Enter product description"
-            className="textarea textarea-bordered w-full h-24"
+            className="textarea textarea-bordered w-full h-24 rounded-md"
           />
         </div>
 
@@ -207,9 +207,9 @@ export default function ProductModal({ open, onClose, data }: Props) {
             <span className="opacity-60">Max 3 images</span>
           </div>
 
-          <div className="border border-base-300 rounded-lg p-3 flex items-center gap-4">
+          <div className="border border-gray-300/10 rounded-lg p-3 flex items-center gap-4">
 
-            <label className={`btn btn-success btn-sm cursor-pointer ${isLoading ? "btn-disabled" : ""}`}>
+            <label className={`btn btn-success btn-sm rounded-md cursor-pointer ${isLoading ? "btn-disabled" : ""}`}>
               Choose Files
               <input
                 type="file"
@@ -234,14 +234,14 @@ export default function ProductModal({ open, onClose, data }: Props) {
 
           <button
             onClick={onClose}
-            className="btn btn-ghost"
+            className="btn btn-ghost rounded-md"
             disabled={isLoading}
           >
             Cancel
           </button>
 
           <button 
-            className="btn btn-success" 
+            className="btn btn-success rounded-md" 
             onClick={handleSubmit}
             disabled={isLoading}
           >

@@ -145,7 +145,7 @@ export default function Products() {
             Your inventory is empty. Start by adding your first product to the store.
           </p>
           <button
-            className="btn btn-success btn-sm gap-2"
+            className="btn btn-success btn-sm gap-2 rounded-md"
             onClick={handleAdd}
           >
             <Plus size={16} />
