@@ -6,7 +6,7 @@ import Products from "./pages/Products";
 import Orders from "./pages/Orders";
 import Customers from "./pages/Customers";
 import DashboardLayout from "./Layouts/DashboardLayout";
-import PageLoader from "./components/pageLoader";
+import PageLoader from "./components/PageLoader";
 
 function App() {
   const { isSignedIn, isLoaded } = useAuth();
