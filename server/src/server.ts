@@ -11,6 +11,7 @@ import cartRoutes from "./routes/cart.routes";
 import paymentRouter from "./routes/payment.routes";
 import paymentRoutes from "./routes/payment.routes";
 import { clerkMiddleware } from "@clerk/express";
+import adminRoutes from "./routes/admin.routes";
 
 const app = express();
 dotenv.config();
@@ -26,6 +27,7 @@ app.use("/api/reviews", reviewRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/payment", paymentRoutes);
+app.use("/api/admin", adminRoutes);
 
 app.get("/api/health", (req, res) => {
   res.status(200).json({ message: "Success" });
