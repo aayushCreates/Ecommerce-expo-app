@@ -1,8 +1,48 @@
-import axios from 'axios';
+import axiosInstance from "./axios"
 
-const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL,
-    withCredentials: true
-})
+export const productApi = {
+    getAll: async ()=> {
+        const { data } = await axiosInstance.get('/admin/products');
+        return data;
+    },
 
-export default api;
+    create: async (formData)=> {
+        const { data } = await axiosInstance.post('/admin/products', formData);
+        return data;
+    },
+
+    update: async ({ id, formData })=> {
+        const { data } = await axiosInstance.put(`/admin/products/${id}`, formData);
+        return data;
+    },
+    
+    delete: async (id: string)=> {
+        const { data } = await axiosInstance.delete(`/admin/products/${id}`);
+        return data;
+    }
+}
+
+export const orderApi = {
+    getAll: async ()=> {
+        const { data } = await axiosInstance.get('/admin/orders');
+        return data;
+    },
+
+    updateStatus: async ({ id, status }: {
+        id: string;
+        status: string;
+    })=> {
+        const { data } = await axiosInstance.patch(`/admin/orders/${id}/status`, status);
+        return data;
+    },
+}
+
+export const statsApi = {
+    getDashboard: async()=> {
+        const { data } = await axiosInstance.get('/admin/stats');
+
+        return data;
+    }
+
+
+}
