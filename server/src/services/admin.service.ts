@@ -37,7 +37,7 @@ export class AdminServices {
       price: parseFloat(price),
       stock: parseInt(stock),
       category,
-      images: imageUrls,
+      images: imageUrls,  
     });
 
     return product;
