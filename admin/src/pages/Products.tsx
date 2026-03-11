@@ -5,7 +5,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { productApi } from "../lib/api";
 import PageLoader from "../components/PageLoader";
 import { getStockStatusBadge } from "../lib/utils";
-import ConfirmationModal from "../components/confirmationModal";
+import ConfirmationModal from "../components/ConfirmationModal";
 
 export type Product = {
   id: number;
@@ -13,7 +13,8 @@ export type Product = {
   category: string;
   price: number;
   stock: number;
-  image: string;
+  images: string[];
+  description?: string;
 };
 
 export default function Products() {
@@ -24,10 +25,13 @@ export default function Products() {
 
   const [productToDelete, setProductToDelete] = useState<number | null>(null);
 
-  const { data: products, isLoading } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["Products"],
     queryFn: productApi.getAll,
   });
+
+  // Handle both array and { products: [] } responses
+  const products = Array.isArray(data) ? data : data?.products || [];
 
   const deleteMutation = useMutation({
     mutationFn: (id: string) => productApi.delete(id),
@@ -82,7 +86,7 @@ export default function Products() {
       </div>
 
       {/* Products List */}
-      {products && products.length > 0 ? (
+      {products.length > 0 ? (
         <div className="space-y-4">
           {products.map((product: Product) => (
             <div
@@ -94,8 +98,9 @@ export default function Products() {
                 {/* Left */}
                 <div className="flex items-center gap-4">
                   <img
-                    src={product.image}
-                    className="w-14 h-14 rounded-lg object-cover"
+                    src={product.images[0]}
+                    className="w-14 h-14 rounded-lg object-cover bg-neutral-700"
+                    alt={product.name}
                   />
 
                   <div>
