@@ -1,5 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
+
+dotenv.config();
+
 import connectDB from "./config/db.config";
 import cors from "cors";
 import morgan from "morgan";
@@ -8,13 +11,11 @@ import reviewRoutes from "./routes/review.routes";
 import orderRoutes from "./routes/order.routes";
 import productRoutes from "./routes/product.routes";
 import cartRoutes from "./routes/cart.routes";
-import paymentRouter from "./routes/payment.routes";
 import paymentRoutes from "./routes/payment.routes";
 import { clerkMiddleware } from "@clerk/express";
 import adminRoutes from "./routes/admin.routes";
 
 const app = express();
-dotenv.config();
 
 app.use(cors());
 app.use(express.json());
