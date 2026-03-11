@@ -13,26 +13,14 @@ const Landing = () => {
   return (
     <div className="min-h-screen bg-base-200 text-base-content selection:bg-primary selection:text-primary-content">
       {/* Navbar */}
-      <nav className="navbar bg-base-100/80 backdrop-blur-md sticky top-0 z-50 border-b border-base-300 px-4 lg:px-12">
-        <div className="flex-1">
+      <nav className="navbar bg-base-100/80 backdrop-blur-md sticky top-0 z-50 border-b border-base-300 px-4 lg:px-12 flex justify-between">
+        <div className="">
           <a className="btn btn-ghost text-2xl font-bold flex items-center gap-2">
             <ShoppingBag className="w-8 h-8 text-primary" />
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent">
               ShoppyAdmin
             </span>
           </a>
-        </div>
-        <div className="flex gap-4">
-          <SignInButton mode="modal">
-            <button className="btn btn-outline btn-sm md:btn-md border-base-300 hover:border-primary">
-              Log In
-            </button>
-          </SignInButton>
-          <SignUpButton mode="modal">
-            <button className="btn btn-primary btn-sm md:btn-md shadow-lg shadow-primary/20">
-              Get Started
-            </button>
-          </SignUpButton>
         </div>
       </nav>
 
@@ -47,9 +35,7 @@ const Landing = () => {
         <div className="max-w-6xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-base-300/50 border border-base-content/10 mb-8 animate-fade-in">
             <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-sm font-medium">
-              Welcome to ShoppyAdmin
-            </span>
+            <span className="text-sm font-medium">Welcome to ShoppyAdmin</span>
           </div>
 
           <h1 className="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight leading-tight">
@@ -65,11 +51,15 @@ const Landing = () => {
             Track orders, manage customers, and scale your business globally.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex gap-4 justify-center items-center">
+            <SignInButton mode="modal">
+              <button className="btn border btn-sm md:btn-md border-green-100/20 rounded-md hover:border-primary">
+                Log In
+              </button>
+            </SignInButton>
             <SignUpButton mode="modal">
-              <button className="btn btn-primary btn-lg px-8 group shadow-xl shadow-primary/30">
-                Start Managing Free
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <button className="btn btn-primary rounded-md btn-sm md:btn-md shadow-lg shadow-primary/20">
+                Get Started
               </button>
             </SignUpButton>
           </div>
