@@ -37,7 +37,7 @@ export default function Index() {
       <View className="w-full mt-8 mb-6 gap-3.5">
         {/* Google Sign In */}
         <TouchableOpacity
-          className="flex-row items-center bg-white border border-gray-200 rounded-full px-5 py-2.5"
+          className="flex-row items-center bg-gray-50 border border-gray-200 rounded-full px-5 py-2.5 shadow-sm shadow-black/60"
           onPress={() => {
             setClickedAuthMethod("oauth_google");
             handleSocialAuth("oauth_google");
@@ -65,7 +65,7 @@ export default function Index() {
 
         {/* Apple Sign In */}
         <TouchableOpacity
-          className="flex-row items-center bg-white border border-gray-200 rounded-full px-6 py-4"
+          className="flex-row items-center bg-gray-50 border border-gray-200 rounded-full px-6 py-4 shadow-sm shadow-black/60"
           onPress={() => {
             setClickedAuthMethod("oauth_apple");
             handleSocialAuth("oauth_apple");
