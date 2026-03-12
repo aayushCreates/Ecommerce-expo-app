@@ -53,7 +53,7 @@ export default function Index() {
             <View className="flex-row items-center w-full">
               <Image
                 source={require("@/assets/images/google.png")}
-                className="w-8 h-8"
+                className="w-9 h-9"
                 resizeMode="contain"
               />
               <Text className="flex-1 text-center text-gray-800 text-base font-semibold pr-6">
@@ -65,7 +65,7 @@ export default function Index() {
 
         {/* Apple Sign In */}
         <TouchableOpacity
-          className="flex-row items-center bg-white border border-gray-200 rounded-full px-5 py-3.5"
+          className="flex-row items-center bg-white border border-gray-200 rounded-full px-6 py-4"
           onPress={() => {
             setClickedAuthMethod("oauth_apple");
             handleSocialAuth("oauth_apple");
