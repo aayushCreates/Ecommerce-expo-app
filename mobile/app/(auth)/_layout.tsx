@@ -3,10 +3,13 @@ import { Redirect, Stack } from "expo-router";
 import React from "react";
 
 const AuthLayout = () => {
-  const { isSignedIn } = useAuth();
+  const { isSignedIn, isLoaded } = useAuth();
 
+  if (!isLoaded) {
+    return null;
+  }
   if (isSignedIn) {
-    return <Redirect href={"/"} />;
+    return <Redirect href={"/(tabs)"} />;
   }
 
   return (

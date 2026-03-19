@@ -47,7 +47,7 @@ export default function Index() {
         >
           {isLoading && clickedAuthMethod === "oauth_google" ? (
             <View className="flex-1 items-center justify-center">
-              <ActivityIndicator size="small" color="#4285f4" />
+              <ActivityIndicator size={"small"} color="#4285f4" />
             </View>
           ) : (
             <View className="flex-row items-center w-full">
